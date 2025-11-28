@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>URL Shortener</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="w-full bg-slate-50  min-h-screen flex items-center justify-center ">
+        <div class="bg-white rounded-md py-12 p-8 shadow-md min-w-[350px] text-center">
+            <div>
+                <h1 class="text-2xl font-bold mb-4">URL Shortener</h1>
+            </div>
+            <div>
+                <form action="" id="shorten-form">
+                    <div class="text-left mb-4">
+                        <label for="url">URL</label>
+                        <input class="border bg-slate-50 rounded-md p-2 w-full" type="text" id="url" name="url"
+                            required>
+                    </div>
+                    <div class="text-left mb-4">
+                        <label for="shortCode">Short Code</label>
+                        <input class="border bg-slate-50 rounded-md p-2 w-full" type="text" id="shortCode"
+                            name="shortCode" required>
+                    </div>
+                    <button type="submit"
+                        class="bg-blue-600 hover:bg-blue-700 active:scale-[0.98] active:shadow-lg transition-all duration-300 w-full p-2 mt-1 text-white rounded-md">Submit</button>
+                </form>
+            </div>
+            <div class="mt-8">
+                <div>
+                    <h1 class="text-2xl font-bold ">Shortened URL</h1>
+                </div>
+                <div class="text-gray-300">
+                    No URL Found
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const shortForm = document.getElementById('shorten-form')
+
+        shortForm.addEventListener("submit", (e) => {
+            e.preventDefault()
+
+            const formData = new FormData(e.target)
+            console.log('URL', formData.get("url"))
+            console.log('shortCode', formData.get("shortCode"))
+        })
+    </script>
+</body>
+
+</html>
